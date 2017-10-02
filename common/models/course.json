@@ -1,0 +1,39 @@
+{
+  "name": "Course",
+  "plural": "courses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "instructor": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "students": {
+      "type": "hasMany",
+      "model": "Student",
+      "foreignKey": "course",
+      "through": "Registration"
+    },
+    "courseRatings": {
+      "type": "hasMany",
+      "model": "CourseRating",
+      "foreignKey": "course"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
