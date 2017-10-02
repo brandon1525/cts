@@ -26,7 +26,8 @@
       "type": "hasMany",
       "model": "Student",
       "foreignKey": "course",
-      "through": "Registration"
+      "through": "Registration",
+      "keyThrough": "student"
     },
     "courseRatings": {
       "type": "hasMany",

@@ -21,7 +21,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "registers": {
+      "type": "belongsTo",
+      "model": "Student",
+      "foreignKey": "student"
+    },
+    "registered": {
+      "type": "belongsTo",
+      "model": "Course",
+      "foreignKey": "course"
+    }
+  },
   "acls": [],
   "methods": {}
 }

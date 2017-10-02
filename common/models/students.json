@@ -26,7 +26,8 @@
       "type": "hasMany",
       "model": "Course",
       "foreignKey": "student",
-      "through": "Registration"
+      "through": "Registration",
+      "keyThrough": "course"
     }
   },
   "acls": [],
