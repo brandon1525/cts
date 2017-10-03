@@ -1,8 +1,18 @@
 'use strict';
 
 module.exports = function(Registration) {
-  Registration.schedule = function(msg, cb) {
-    cb(null, msg);
+  Registration.schedule = function(register, cb) {
+    Registration.find({where:{and :[{student: register.student},{course: register.course}]}}, (err, registers)=>{
+      if (err) cb(err);
+      if(registers.length>0){
+        cb(err, { msg: 'Usuario ya se inscribio a ese curso'});
+      }else{
+        Registration.create(register, (err, register) => {
+          if (err) cb(err);
+          cb(null, register);
+        });
+      }
+    });
   }
   Registration.remoteMethod('schedule', {
     accepts: { arg: 'data', type: 'object', http: { source: 'body' }, description: 'Instance of schedule' },
@@ -12,6 +22,6 @@ module.exports = function(Registration) {
       { arg: 'semester', type: 'number' },
       { arg: 'id', type: 'string' }
     ],
-    description: 'Method is used to schedule a course'
+    description: 'Method to schedule a course'
   });
 };
