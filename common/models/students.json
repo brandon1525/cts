@@ -18,6 +18,10 @@
     "password": {
       "type": "string",
       "required": true
+    },
+    "pathImg": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
