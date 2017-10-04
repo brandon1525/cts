@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "mongoDS"
+    "dataSource": "mongoDS",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mongoDS",
